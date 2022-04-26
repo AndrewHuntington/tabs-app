@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "./App.css";
 
 function App() {
+  const [borderColor, setBorderColor] = useState("border-green-600");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Tabs>
+        <TabList className="flex">
+          <Tab className="mx-2">
+            <button
+              className={`border-2 ${borderColor} rounded-full`}
+              onClick={() =>
+                setBorderColor((borderColor) =>
+                  borderColor === "border-green-600"
+                    ? "border-red-600"
+                    : "border-green-600"
+                )
+              }
+            >
+              Title 1
+            </button>
+          </Tab>
+          <Tab>Title 2</Tab>
+        </TabList>
+
+        <TabPanel>
+          <h2>Any content 1</h2>
+        </TabPanel>
+        <TabPanel>
+          <h2>Any content 2</h2>
+        </TabPanel>
+      </Tabs>
+    </>
   );
 }
 
