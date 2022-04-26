@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.inactive-tab {
+  @apply border-2 rounded-full border-red-600;
+}
+
+.active-tab {
+  @apply border-2 rounded-full border-green-600;
+}
