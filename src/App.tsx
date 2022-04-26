@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "./App.css";
 
 function App() {
   const [borderColor, setBorderColor] = useState("border-green-600");
