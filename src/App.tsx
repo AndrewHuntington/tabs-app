@@ -1,37 +1,28 @@
-import { useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "./App.css";
+import Button from "./Button";
 
 function App() {
-  const [borderColor, setBorderColor] = useState("border-green-600");
+  const tabData = {
+    titles: ["Title 1", "Title 2", "Title 3"],
+    contents: ["Content 1", "Content 2", "Content 3"],
+  };
 
   return (
     <>
-      <Tabs>
+      <Tabs selectedTabClassName="active-tab">
         <TabList className="flex">
-          <Tab className="mx-2">
-            <button
-              className={`border-2 ${borderColor} rounded-full`}
-              onClick={() =>
-                setBorderColor((borderColor) =>
-                  borderColor === "border-green-600"
-                    ? "border-red-600"
-                    : "border-green-600"
-                )
-              }
-            >
-              Title 1
-            </button>
-          </Tab>
-          <Tab>Title 2</Tab>
+          {tabData.titles.map((title, index) => (
+            <Tab className="mx-2 inactive-tab">
+              <Button>{title}</Button>
+            </Tab>
+          ))}
         </TabList>
 
-        <TabPanel>
-          <h2>Any content 1</h2>
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-        </TabPanel>
+        {tabData.contents.map((content, index) => (
+          <TabPanel>
+            <h2>{content}</h2>
+          </TabPanel>
+        ))}
       </Tabs>
     </>
   );
